@@ -18,19 +18,20 @@ class Predictor(BasePredictor):
         print("🔄 Lade AndrinK Modell von Hugging Face...")
         
         try:
-            # Dein Modell von Hugging Face downloaden
+            # Dein Modell direkt von Hugging Face downloaden
             model_path = hf_hub_download(
                 repo_id="MonsterMMORPG/AndrinK",
                 filename="FLUX/AndrinK_FLUX-000100.safetensors"
             )
             
-            # Modell laden
+            # Custom Weights laden
             custom_weights = load_file(model_path)
             self.pipe.transformer.load_state_dict(custom_weights, strict=False)
             print("✅ AndrinK Modell geladen!")
             
         except Exception as e:
             print(f"⚠️ Fehler: {e}")
+            print("📝 Nutze Standard FLUX-Modell")
         
         self.pipe.enable_model_cpu_offload()
         print("✅ Bereit!")
