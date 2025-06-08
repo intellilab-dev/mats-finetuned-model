@@ -1,3 +1,4 @@
+# Custom FLUX Model for Portraits
 # cog-flux
 
 This is a [Cog](https://cog.run) inference model for FLUX.1 [schnell] and FLUX.1 [dev] by [Black Forest Labs](https://blackforestlabs.ai/). It powers the following Replicate models:
